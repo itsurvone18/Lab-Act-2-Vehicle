@@ -1,26 +1,44 @@
 public class Main {
 
+    public static void printDetails(Vehicle vehicle) {
+        vehicle.displayInfo();
+    }
+
     public static void main(String[] args) {
 
-        Vehicle vehicle1 = new Vehicle("Nissan", "Navarra", 1995);
-        Vehicle vehicle2 = new Vehicle("Honda", "Civic", 2006);
-        Vehicle vehicle3 = new Vehicle("Ford", "Ranger", 2018);
-
-        System.out.println("Vehicle 1:");
-        vehicle1.displayInfo();
-        System.out.println("Age: " + vehicle1.calculateAge());
-        System.out.println("Vintage: " + vehicle1.isVintage());
+       
+        Vehicle vehicle = new Car("Toyota", "Vios", 2026, 4);
+        vehicle.displayInfo();
         System.out.println();
 
-        System.out.println("Vehicle 2:");
-        vehicle2.displayInfo();
-        System.out.println("Age: " + vehicle2.calculateAge());
-        System.out.println("Vintage: " + vehicle2.isVintage());
+        vehicle = new Motorcycle("Honda", "XRM", 2015, "Manual");
+        vehicle.displayInfo();
         System.out.println();
 
-        System.out.println("Vehicle 3:");
-        vehicle3.displayInfo();
-        System.out.println("Age: " + vehicle3.calculateAge());
-        System.out.println("Vintage: " + vehicle3.isVintage());
+       
+        System.out.println("=== Demo 2: Method Parameter ===");
+
+        Car car = new Car("Tesla", "Roadster", 2026, 4);
+        Motorcycle motor =
+                new Motorcycle("NMAX", "V3", 2026, "Matic");
+
+        printDetails(car);
+        System.out.println();
+
+        printDetails(motor);
+        System.out.println();
+
+       
+        System.out.println("=== Demo 3: Polymorphic Array ===");
+
+        Vehicle[] vehicles = {
+            new Car("Tesla", "Roadster", 2026, 4),
+            new Motorcycle("NMAX", "V3", 2026, "Matic")
+        };
+
+        for (Vehicle currentVehicle : vehicles) {
+            printDetails(currentVehicle);
+            System.out.println();
+        }
     }
 }
